@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="lh0">0dp</dimen>
+    <dimen name="ps10">10dp</dimen>
+    <dimen name="lm20">20dp</dimen>
+    <dimen name="pr20">20dp</dimen>
+    <dimen name="pl20">20dp</dimen>
+    <dimen name="lmt20">20dp</dimen>
+    <dimen name="lh35">35dp</dimen>
+    <dimen name="lw40">40dp</dimen>
+    <dimen name="lh40">40dp</dimen>
+    <dimen name="me15">15dp</dimen>
+</resources>

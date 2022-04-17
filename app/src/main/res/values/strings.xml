@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">YanapaApp</string>
+
+    <string name="sign_in">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Olvidé Contraseña?</string>
+    <string name="or_signup_with">O Iniciar Sesión en:</string>
+    <!-- numbers -->
+    <integer name="lw1">1</integer>
+    <integer name="lw4">4</integer>
 </resources>

@@ -6,6 +6,20 @@
     <string name="password">Password</string>
     <string name="forgot_password">Olvidé Contraseña?</string>
     <string name="or_signup_with">O Iniciar Sesión en:</string>
+    <string name="welcome">Welcome to YanapaApp</string>
+    <string name="privacy">Politicas de Privacidad</string>
+    <string name="username">Efren Carrillo</string>
+    <string name="role">Colaborador</string>
+    <string name="point_text">Puntos de Acopio</string>
+    <string name="case_text">Caso Exito</string>
+    <string name="gif_text">Donaciones</string>
+    <!-- menu -->
+    <string name="home_text">Home</string>
+    <string name="profile_text">Profile</string>
+    <string name="logout_text">Logout</string>
+    <string name="communicate_text">Communicate</string>
+    <string name="share_text">Share</string>
+    <string name="rate_text">Rate</string>
     <!-- numbers -->
     <integer name="lw1">1</integer>
     <integer name="lw4">4</integer>

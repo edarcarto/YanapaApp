@@ -20,6 +20,8 @@
     <string name="communicate_text">Communicate</string>
     <string name="share_text">Share</string>
     <string name="rate_text">Rate</string>
+    <string name="navigation_drawer_open">open</string>
+    <string name="navigation_drawer_close">close</string>
     <!-- numbers -->
     <integer name="lw1">1</integer>
     <integer name="lw4">4</integer>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group >
+        <item
+            android:title="@string/home_text"
+            android:id="@+id/navHome"
+            android:icon="@drawable/ic_baseline_home_24"/>
+    </group>
+    <item android:title="@string/profile_text">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/navProfile"
+                    android:icon="@drawable/ic_baseline_person_pin_24"
+                    android:title="@string/profile_text" />
+                <item
+                    android:title="@string/logout_text"
+                    android:icon="@drawable/ic_baseline_login_24"
+                    android:id="@+id/navLogout" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="@string/communicate_text">
+        <menu>
+            <item
+                android:id="@+id/navShare"
+                android:title="@string/share_text"
+                android:icon="@drawable/ic_baseline_share_24"/>
+            <item
+                android:id="@+id/navRate"
+                android:title="@string/rate_text"
+                android:icon="@drawable/ic_baseline_star_rate_24"/>
+        </menu>
+    </item>
+</menu>

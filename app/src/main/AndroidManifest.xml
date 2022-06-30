@@ -14,8 +14,24 @@
         android:theme="@style/Theme.YanapaAppJava"
         tools:targetApi="31">
         <activity
-            android:name="pe.edu.utp.yanapaapp.MainActivity"
-            android:exported="true">
+            android:name=".PrivacyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SingInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

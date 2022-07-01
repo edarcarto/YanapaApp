@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".PrivacyActivity">
+    tools:context=".activities.PrivacyActivity">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -49,6 +49,7 @@
                 android:layout_height="match_parent" />
         </androidx.cardview.widget.CardView>
         <TextView
+            android:id="@+id/tvBack"
             android:layout_marginTop="@dimen/dp_10"
             android:textColor="@color/teal_700"
             android:text="@string/back"

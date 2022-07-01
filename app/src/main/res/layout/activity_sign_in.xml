@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".SingInActivity">
+    tools:context=".activities.SingInActivity">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
+            android:contentDescription="@string/logout_text"
             android:src="@drawable/ic_login"
             android:layout_weight="@integer/lw4"
             android:layout_width="match_parent"
@@ -33,9 +34,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <EditText
+            android:autofillHints="username"
+            android:inputType="text"
+            android:id="@+id/etUsername"
             android:paddingStart="@dimen/padding_10"
             android:paddingEnd="@dimen/padding_10"
-            android:hint="@string/email"
+            android:hint="@string/username_text"
             android:layout_margin="@dimen/dp_20"
             android:textColorHint="@color/hint_eee"
             android:textColor="@color/white"
@@ -44,6 +48,8 @@
             android:background="@drawable/rounded_corner"
             android:textSize="@dimen/sp_17"/>
         <EditText
+            android:autofillHints="password"
+            android:id="@+id/etPassword"
             android:paddingStart="@dimen/padding_10"
             android:paddingEnd="@dimen/padding_10"
             android:hint="@string/password"
@@ -65,13 +71,25 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dp_35" />
         <TextView
-            android:layout_marginTop="@dimen/dp_20"
+            android:id="@+id/tvForgotPassword"
+            android:layout_marginTop="@dimen/dp_60"
             android:textColor="@color/teal_700"
             android:textStyle="bold"
             android:text="@string/forgot_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
         <TextView
+            android:id="@+id/tvRegister"
+            android:layout_marginTop="@dimen/dp_20"
+            android:textColor="@color/teal_700"
+            android:textStyle="bold"
+            android:text="@string/register_me"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvPrivacy"
             android:layout_marginTop="@dimen/dp_20"
             android:textColor="@color/teal_700"
             android:textStyle="bold"
@@ -97,11 +115,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageButton
+                android:contentDescription="@string/google"
                 android:layout_marginEnd="@dimen/dp_15"
                 android:background="@drawable/google"
                 android:layout_width="@dimen/dp_40"
                 android:layout_height="@dimen/dp_40" />
             <ImageButton
+                android:contentDescription="@string/facebook"
                 android:layout_marginEnd="@dimen/dp_15"
                 android:background="@drawable/facebook_box"
                 android:layout_width="@dimen/dp_40"

@@ -1,4 +1,4 @@
-package pe.edu.utp.yanapaapp;
+package pe.edu.utp.yanapaapp.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -12,10 +12,12 @@ import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 
+import pe.edu.utp.yanapaapp.R;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawerLayout;
-    private Toolbar toolbar;
-    private NavigationView navigationView;
+    Toolbar toolbar;
+    NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

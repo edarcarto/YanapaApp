@@ -10,15 +10,25 @@
         <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/drawable/rounded_corner.xml" value="0.2265" />
         <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/drawable/rounded_corner_button.xml" value="0.2265" />
         <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/drawable/splash_background.xml" value="0.2265" />
+        <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/activity_case.xml" value="0.20854700854700856" />
+        <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/activity_donation.xml" value="0.20863616930312098" />
         <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/activity_forgot_password.xml" value="0.20863616930312098" />
         <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/activity_main.xml" value="0.18432971014492755" />
+        <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/activity_place.xml" value="0.20863616930312098" />
         <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/activity_privacy.xml" value="0.20863616930312098" />
+        <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/activity_profile.xml" value="0.20863616930312098" />
         <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/activity_register.xml" value="0.20863616930312098" />
         <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/activity_sign_in.xml" value="0.20863616930312098" />
         <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/activity_splash.xml" value="0.20863616930312098" />
-        <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/activity_user_profile.xml" value="0.20863616930312098" />
+        <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/activity_user_profile.xml" value="0.18449682683590207" />
         <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/app_bar_main.xml" value="0.18449682683590207" />
+        <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/content_place.xml" value="0.20854700854700856" />
+        <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/fragment_first.xml" value="0.20854700854700856" />
+        <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/fragment_second.xml" value="0.20854700854700856" />
         <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/header_menu.xml" value="0.20778110303548525" />
+        <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/list_item_case.xml" value="0.20863616930312098" />
+        <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/list_item_donation.xml" value="0.20863616930312098" />
+        <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/layout/list_item_place.xml" value="0.20863616930312098" />
         <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaApp/app/src/main/res/menu/main_menu.xml" value="0.20863616930312098" />
         <entry key="..\:/users/ecarrilb/AndroidStudioProjects/YanapaAppJava/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
       </map>

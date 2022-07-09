@@ -21,4 +21,13 @@
         <item name="colorAccent">@color/white</item>
         <item name="android:statusBarColor">?attr/colorPrimary</item>
     </style>
+
+    <style name="Theme.YanapaAppJava.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.YanapaAppJava.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.YanapaAppJava.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

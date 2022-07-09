@@ -8,8 +8,16 @@ import io.realm.annotations.PrimaryKey;
 public class TokenEntity extends RealmObject {
     @PrimaryKey
     private String id = UUID.randomUUID().toString();
-    private String accessToken, tokenType, scope, jti;
+    private String accessToken, tokenType, scope, jti, username;
     private int expiresIn;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getAccessToken() {
         return accessToken;
@@ -41,6 +49,14 @@ public class TokenEntity extends RealmObject {
 
     public void setJti(String jti) {
         this.jti = jti;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public int getExpiresIn() {

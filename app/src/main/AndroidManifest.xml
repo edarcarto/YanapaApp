@@ -7,7 +7,6 @@
 
     <application
         android:name=".AndroidApplication"
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,21 +15,41 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.YanapaAppJava"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.DonationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.PlaceActivity"
+            android:exported="false"
+            android:label="@string/title_activity_place"
+            android:theme="@style/Theme.YanapaAppJava.NoActionBar" />
+        <activity
+            android:name=".activities.UserProfileActivity"
+            android:exported="false" />
+        <activity
+            android:theme="@style/Theme.YanapaAppJava.NoActionBar"
             android:name=".activities.PrivacyActivity"
             android:exported="false" />
         <activity
+            android:theme="@style/Theme.YanapaAppJava.NoActionBar"
             android:name=".activities.ForgotPasswordActivity"
             android:exported="false" />
         <activity
+            android:theme="@style/Theme.YanapaAppJava.NoActionBar"
             android:name=".activities.RegisterActivity"
             android:exported="false" />
         <activity
+            android:theme="@style/Theme.YanapaAppJava.NoActionBar"
             android:name=".activities.SingInActivity"
             android:exported="false" />
         <activity
             android:name=".activities.MainActivity"
+            android:theme="@style/Theme.YanapaAppJava.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".activities.SplashActivity"

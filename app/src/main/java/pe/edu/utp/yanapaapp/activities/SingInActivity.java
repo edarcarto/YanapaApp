@@ -24,6 +24,7 @@ import okhttp3.RequestBody;
 import pe.edu.utp.yanapaapp.R;
 import pe.edu.utp.yanapaapp.database.DB;
 import pe.edu.utp.yanapaapp.database.auth.TokenEntity;
+import pe.edu.utp.yanapaapp.database.auth.UserEntity;
 import pe.edu.utp.yanapaapp.net.ConfigRetrofit;
 import pe.edu.utp.yanapaapp.net.ServicesRetrofit;
 import pe.edu.utp.yanapaapp.net.response.Token;
@@ -35,6 +36,7 @@ public class SingInActivity extends AppCompatActivity {
     private Button btnLogin;
     private EditText etUsername, etPassword;
     private TextView tvForgotPassword, tvPrivacy, tvRegister;
+    private DB db = new DB();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,14 @@ public class SingInActivity extends AppCompatActivity {
         tvForgotPassword = (TextView) findViewById(R.id.tvForgotPassword);
         tvPrivacy = (TextView) findViewById(R.id.tvPrivacy);
         tvRegister = (TextView) findViewById(R.id.tvRegister);
+
+        if(db.getToken() != null){
+            TokenEntity te = db.getToken();
+            Constants.mUSERNAME = te.getUsername();
+            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(i);
+            finish();
+        }
     }
 
     @Override
@@ -65,7 +75,6 @@ public class SingInActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(view -> {
             if(!TextUtils.isEmpty(etUsername.getText().toString()) &&
                     !TextUtils.isEmpty(etPassword.getText().toString())) {
-                DB db = new DB();
                 try {
                     Interceptor headerAuthorizationInterceptor = chain -> {
                         String authToken = Credentials.basic(Constants.USERNAME,Constants.PASSWORD);
@@ -97,7 +106,13 @@ public class SingInActivity extends AppCompatActivity {
                             tokenEntity.setExpiresIn(response.body().getExpires_in());
                             tokenEntity.setScope(response.body().getScope());
                             tokenEntity.setJti(response.body().getJti());
-                            db.registerToken(tokenEntity);
+                            tokenEntity.setUsername(etUsername.getText().toString());
+                            UserEntity user = new UserEntity();
+                            user.setUsername(etUsername.getText().toString());
+                            String name  = (etUsername.getText().toString().equals("Efren")) ? "Efren Carrillo" : "Everth Pintado";
+                            user.setFullName(name);
+                            user.setPassword(etPassword.getText().toString());
+                            db.registerOfflineUser(tokenEntity,user);
                             Intent i = new Intent(getApplicationContext(),MainActivity.class);
                             startActivity(i);
                             finish();
@@ -105,7 +120,7 @@ public class SingInActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(@NonNull Call<Token> call, @NonNull Throwable t) {
-                            Log.d("ERROR",t.getMessage());
+                            Log.d("enqueue",t.getMessage());
                         }
                     });
                 }catch (Exception e){

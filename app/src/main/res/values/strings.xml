@@ -13,15 +13,15 @@
     <string name="welcome">Welcome to YanapaApp</string>
     <string name="register_form">Register to YanapaApp</string>
     <string name="privacy">Politicas de Privacidad</string>
-    <string name="username">Efren Carrillo</string>
+    <string name="username">edarcarto</string>
     <string name="role">Colaborador</string>
     <string name="point_text">Puntos de Acopio</string>
     <string name="case_text">Caso Exito</string>
     <string name="gif_text">Donaciones</string>
     <string name="google">Google</string>
     <string name="facebook">Facebook</string>
-    <string name="text_123">123</string>
-    <string name="sol_123">S/123</string>
+    <string name="text_123">0</string>
+    <string name="sol_123">S/0</string>
     <string name="text_profile">Aportes</string>
     <string name="email_text">Correo electronico</string>
     <string name="fullName">Nombre completo</string>
@@ -39,4 +39,13 @@
     <!-- numbers -->
     <integer name="lw1">1</integer>
     <integer name="lw4">4</integer>
+    <string name="title_activity_place">PlaceActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Listado de centros de acopio</string>
+    <string name="second_fragment_label">Mapa de centros de acopio</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>

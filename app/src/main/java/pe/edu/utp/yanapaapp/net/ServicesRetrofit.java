@@ -1,10 +1,14 @@
 package pe.edu.utp.yanapaapp.net;
 
+import java.util.List;
+
 import okhttp3.RequestBody;
 import pe.edu.utp.yanapaapp.net.response.Menu;
+import pe.edu.utp.yanapaapp.net.response.Zone;
 import pe.edu.utp.yanapaapp.net.response.Token;
 import retrofit2.Call;
 import retrofit2.http.Field;
+import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -18,4 +22,7 @@ public interface ServicesRetrofit {
 
     @POST("/yanapay-backend/menus/usuario")
     Call<Menu> postMenu(@Field("username") String username);
+
+    @GET("/yanapay-backend/zonaAcopios")
+    Call<List<Zone>> getPlaces();
 }

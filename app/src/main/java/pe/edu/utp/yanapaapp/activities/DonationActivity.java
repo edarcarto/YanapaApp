@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +20,12 @@ import pe.edu.utp.yanapaapp.models.Donation;
 
 public class DonationActivity extends AppCompatActivity implements DonationClickListener {
     List<Donation> elements;
+    private FloatingActionButton fab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donation);
+        fab = findViewById(R.id.fab);
         init();
     }
 
@@ -42,5 +47,14 @@ public class DonationActivity extends AppCompatActivity implements DonationClick
     @Override
     public void onClick(View view, int position) {
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fab.setOnClickListener(view -> {
+            Intent i = new Intent(getApplicationContext(),FormDonationActivity.class);
+            startActivity(i);
+        });
     }
 }

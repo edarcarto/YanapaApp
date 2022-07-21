@@ -32,4 +32,5 @@
     <!-- numbers -->
     <integer name="one">1</integer>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>

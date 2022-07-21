@@ -30,12 +30,12 @@
         <TextView
             android:layout_gravity="center"
             android:gravity="center"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="?actionBarSize"
             android:text="@string/welcome"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="@dimen/sp_24"
             android:textStyle="bold" />
 
         <EditText
@@ -105,7 +105,7 @@
             android:textColor="@color/teal_700"
             android:textStyle="bold" />
     </LinearLayout>
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_marginBottom="@dimen/dp_10"
         android:gravity="center"
         android:orientation="vertical"
@@ -136,5 +136,5 @@
                 android:layout_height="@dimen/dp_40" />
         </LinearLayout>
 
-    </LinearLayout>
+    </LinearLayout>-->
 </RelativeLayout>

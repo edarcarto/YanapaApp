@@ -18,6 +18,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".AccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QRActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FormDonationActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.DonationActivity"
             android:exported="false" />
         <activity
@@ -32,25 +41,25 @@
             android:name=".activities.UserProfileActivity"
             android:exported="false" />
         <activity
-            android:theme="@style/Theme.YanapaAppJava.NoActionBar"
             android:name=".activities.PrivacyActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.YanapaAppJava.NoActionBar" />
         <activity
-            android:theme="@style/Theme.YanapaAppJava.NoActionBar"
             android:name=".activities.ForgotPasswordActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.YanapaAppJava.NoActionBar" />
         <activity
-            android:theme="@style/Theme.YanapaAppJava.NoActionBar"
             android:name=".activities.RegisterActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.YanapaAppJava.NoActionBar" />
         <activity
-            android:theme="@style/Theme.YanapaAppJava.NoActionBar"
             android:name=".activities.SingInActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.YanapaAppJava.NoActionBar" />
         <activity
             android:name=".activities.MainActivity"
-            android:theme="@style/Theme.YanapaAppJava.NoActionBar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.YanapaAppJava.NoActionBar" />
         <activity
             android:name=".activities.SplashActivity"
             android:exported="true"

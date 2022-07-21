@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.FormDonationActivity">
+
+    <!--<com.google.android.material.appbar.AppBarLayout
+        android:theme="@style/Theme.YanapaAppJava.AppBarOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.YanapaAppJava.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>-->
+    <LinearLayout
+        android:layout_margin="@dimen/dp_10"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textStyle="bold"
+            android:textSize="@dimen/sp_24"
+            android:text="Donación"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/fullName"
+            android:id="@+id/fullName"
+            android:layout_marginBottom="@dimen/dp_10">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableStart="@drawable/ic_baseline_person_pin_24" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Documento"
+            android:id="@+id/document"
+            android:layout_marginBottom="@dimen/dp_10">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtDocument"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableStart="@drawable/ic_baseline_person_pin_24" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tipo Donación"
+            android:id="@+id/typeDonation"
+            android:layout_marginBottom="@dimen/dp_10">
+            <Spinner
+                android:id="@+id/STypeDonation"
+                android:spinnerMode="dropdown"
+                android:background="@drawable/rounded_corner_button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableStart="@drawable/ic_baseline_person_pin_24" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:textStyle="bold"
+            android:textSize="@dimen/sp_24"
+            android:text="Buscar lugar de donación"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Centros de Acopio"
+            android:id="@+id/place"
+            android:layout_marginBottom="@dimen/dp_10">
+            <Spinner
+                android:id="@+id/SPlace"
+                android:spinnerMode="dropdown"
+                android:background="@drawable/rounded_corner_button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableStart="@drawable/ic_baseline_person_pin_24" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Departamento"
+            android:id="@+id/departament"
+            android:layout_marginBottom="@dimen/dp_10">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtDepartament"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableStart="@drawable/ic_baseline_person_pin_24" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Provincia"
+            android:id="@+id/province"
+            android:layout_marginBottom="@dimen/dp_10">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtProvince"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableStart="@drawable/ic_baseline_person_pin_24" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Distrito"
+            android:id="@+id/district"
+            android:layout_marginBottom="@dimen/dp_10">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtDistrict"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableStart="@drawable/ic_baseline_person_pin_24" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@android:drawable/ic_media_next"
+        android:contentDescription="@string/second_fragment_label" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,12 +1,15 @@
 package pe.edu.utp.yanapaapp.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,15 +22,22 @@ import pe.edu.utp.yanapaapp.adapters.PlaceListAdapter;
 import pe.edu.utp.yanapaapp.databinding.FragmentFirstBinding;
 import pe.edu.utp.yanapaapp.interfaces.PlaceClickListener;
 import pe.edu.utp.yanapaapp.models.Place;
+import pe.edu.utp.yanapaapp.net.ConfigRetrofit;
+import pe.edu.utp.yanapaapp.net.ServicesRetrofit;
+import pe.edu.utp.yanapaapp.net.response.Zone;
+import pe.edu.utp.yanapaapp.utils.Constants;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class FirstFragment extends Fragment implements PlaceClickListener {
 
     private FragmentFirstBinding binding;
-    List<Place> elements;
-
+    List<Zone> elements;
+    private PlaceListAdapter listAdapter;
     @Override
     public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
+            @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
 
@@ -55,23 +65,36 @@ public class FirstFragment extends Fragment implements PlaceClickListener {
     }
 
     public void init(){
-        elements = new ArrayList<>();
-        elements.add(new Place(1,"ARZOBISPADO DE AYACUCHO", "Jr 28 De Julio 148", "#775447","Activo"));
-        elements.add(new Place(2,"GENERAL DE DESPALZADOS", "JR Camaná 616", "#775447","Activo"));
-        elements.add(new Place(3,"ARZOBISPADO DE AYACUCHO", "Jr Carabaya 718", "#775447","Activo"));
-        elements.add(new Place(4,"UNIPROV", "Jr Manuel Alarcon 221, Las Nazarenas", "#775447","Activo"));
-        elements.add(new Place(5,"RUTA A", "AV San Martin Pi:3 685", "#775447","Activo"));
+        ServicesRetrofit sr = ConfigRetrofit.getConfig()
+                .create(ServicesRetrofit.class);
+        Call<List<Zone>> places = sr.getPlaces();
+        places.enqueue(new Callback<List<Zone>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<Zone>> call, @NonNull Response<List<Zone>> response) {
+                elements = response.body();
+                listAdapter = new PlaceListAdapter(elements,getContext());
+                //RecyclerView recyclerView = (RecyclerView) binding.rvPlaces;
+                binding.rvPlaces.setHasFixedSize(true);
+                binding.rvPlaces.setLayoutManager(new LinearLayoutManager(getContext()));
+                binding.rvPlaces.setAdapter(listAdapter);
+                listAdapter.setClickListener(FirstFragment.this);
+            }
 
-        PlaceListAdapter listAdapter = new PlaceListAdapter(elements,getContext());
-        //RecyclerView recyclerView = (RecyclerView) binding.rvPlaces;
-        binding.rvPlaces.setHasFixedSize(true);
-        binding.rvPlaces.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.rvPlaces.setAdapter(listAdapter);
-        listAdapter.setClickListener(this);
+            @Override
+            public void onFailure(@NonNull Call<List<Zone>> call, @NonNull Throwable t) {
+
+            }
+        });
     }
 
     @Override
     public void onClick(View view, int position) {
-
+        Constants.zoneModel = elements.get(position);
+        PlaceDetailFragment fragment = new PlaceDetailFragment();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.FirstFragment,fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }

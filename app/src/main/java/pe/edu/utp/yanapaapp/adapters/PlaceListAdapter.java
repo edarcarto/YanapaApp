@@ -16,10 +16,10 @@ import java.util.List;
 
 import pe.edu.utp.yanapaapp.R;
 import pe.edu.utp.yanapaapp.interfaces.PlaceClickListener;
-import pe.edu.utp.yanapaapp.models.Place;
+import pe.edu.utp.yanapaapp.net.response.Zone;
 
 public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.ViewHolder> {
-    private List<Place> mData;
+    private List<Zone> mData;
     private LayoutInflater mInflater;
     private Context context;
 
@@ -29,7 +29,7 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.View
 
     private PlaceClickListener clickListener;
 
-    public PlaceListAdapter(List<Place> mData, Context context) {
+    public PlaceListAdapter(List<Zone> mData, Context context) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = mData;
         this.context = context;
@@ -50,7 +50,7 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.View
         holder.bindData(mData.get(position));
     }
 
-    public void setItems(List<Place> items){ mData = items; }
+    public void setItems(List<Zone> items){ mData = items; }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView iconImage;
@@ -66,12 +66,12 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.View
             itemView.setOnClickListener(this);
         }
 
-        void bindData(final Place person){
-            iconImage.setColorFilter(Color.parseColor(person.getColor()), PorterDuff.Mode.SRC_IN);
-            name.setText(person.getName());
-            address.setText(person.getAddress());
+        void bindData(Zone zone){
+            name.setText(zone.getNombrelocal());
+            address.setText(zone.getDireccion());
+            /*iconImage.setColorFilter(Color.parseColor(person.getColor()), PorterDuff.Mode.SRC_IN);
             //code.setText(String.valueOf(person.getCode()));
-            status.setText(person.getStatus());
+            status.setText(person.getStatus());*/
         }
 
         @Override

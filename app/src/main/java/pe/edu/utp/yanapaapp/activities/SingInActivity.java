@@ -7,11 +7,17 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -37,6 +43,7 @@ public class SingInActivity extends AppCompatActivity {
     private EditText etUsername, etPassword;
     private TextView tvForgotPassword, tvPrivacy, tvRegister;
     private DB db = new DB();
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,14 +54,8 @@ public class SingInActivity extends AppCompatActivity {
         tvForgotPassword = (TextView) findViewById(R.id.tvForgotPassword);
         tvPrivacy = (TextView) findViewById(R.id.tvPrivacy);
         tvRegister = (TextView) findViewById(R.id.tvRegister);
-
-        if(db.getToken() != null){
-            TokenEntity te = db.getToken();
-            Constants.mUSERNAME = te.getUsername();
-            Intent i = new Intent(getApplicationContext(),MainActivity.class);
-            startActivity(i);
-            finish();
-        }
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -76,7 +77,26 @@ public class SingInActivity extends AppCompatActivity {
             if(!TextUtils.isEmpty(etUsername.getText().toString()) &&
                     !TextUtils.isEmpty(etPassword.getText().toString())) {
                 try {
-                    Interceptor headerAuthorizationInterceptor = chain -> {
+                    mAuth.signInWithEmailAndPassword(etUsername.getText().toString(),
+                            etPassword.getText().toString())
+                            .addOnCompleteListener(this, task -> {
+                                if(task.isSuccessful()){
+                                    FirebaseUser fUser = mAuth.getCurrentUser();
+                                    UserEntity user = new UserEntity();
+                                    user.setFullName(fUser.getDisplayName());
+                                    user.setUsername(fUser.getEmail());
+                                    user.setRole("Colaborador");
+                                    db.registerOfflineUser(user);
+                                    Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                                    startActivity(i);
+                                    finish();
+                                }else{
+                                    Log.w("TAG", "createUserWithEmail:failure", task.getException());
+                                    Toast.makeText(SingInActivity.this, "Los datos ingresados son incorrectos.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                    /*Interceptor headerAuthorizationInterceptor = chain -> {
                         String authToken = Credentials.basic(Constants.USERNAME,Constants.PASSWORD);
                         Request request = chain.request();
                         request = request.newBuilder().header("Authorization",authToken).build();
@@ -112,7 +132,7 @@ public class SingInActivity extends AppCompatActivity {
                             String name  = (etUsername.getText().toString().equals("Efren")) ? "Efren Carrillo" : "Everth Pintado";
                             user.setFullName(name);
                             user.setPassword(etPassword.getText().toString());
-                            db.registerOfflineUser(tokenEntity,user);
+                            //db.registerOfflineUser(tokenEntity,user);
                             Intent i = new Intent(getApplicationContext(),MainActivity.class);
                             startActivity(i);
                             finish();
@@ -122,7 +142,7 @@ public class SingInActivity extends AppCompatActivity {
                         public void onFailure(@NonNull Call<Token> call, @NonNull Throwable t) {
                             Log.d("enqueue",t.getMessage());
                         }
-                    });
+                    });*/
                 }catch (Exception e){
                     Log.d("ERROR",e.getMessage());
                 }
@@ -131,5 +151,16 @@ public class SingInActivity extends AppCompatActivity {
                 etPassword.setError("El campo esta vacio");
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(i);
+            finish();
+        }
     }
 }

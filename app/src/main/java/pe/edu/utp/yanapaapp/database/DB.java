@@ -24,17 +24,16 @@ public class DB {
                 .findFirst();
     }
 
-    /*public boolean isLogin(){
+    public UserEntity isLogin(){
         Realm realm = Realm.getDefaultInstance();
-        return realm.where(TokenEntity.class)
+        return realm.where(UserEntity.class)
                 .findFirst();
-    }*/
+    }
 
-    public boolean registerOfflineUser(TokenEntity token, UserEntity user){
+    public boolean registerOfflineUser(UserEntity user){
         Realm realm = Realm.getDefaultInstance();
         try {
             realm.beginTransaction();
-            realm.copyToRealm(token);
             realm.copyToRealm(user);
             realm.commitTransaction();
         }catch (Exception e){

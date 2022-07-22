@@ -8,7 +8,7 @@ import io.realm.annotations.PrimaryKey;
 public class UserEntity extends RealmObject {
     @PrimaryKey
     private String id = UUID.randomUUID().toString();
-    private String username, fullName, password, token;
+    private String username, fullName, password, role;
 
     public String getId() {
         return id;
@@ -42,11 +42,11 @@ public class UserEntity extends RealmObject {
         this.password = password;
     }
 
-    public String getToken() {
-        return token;
+    public String getRole() {
+        return role;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setRole(String role) {
+        this.role = role;
     }
 }

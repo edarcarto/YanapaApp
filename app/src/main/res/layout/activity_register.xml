@@ -36,11 +36,11 @@
             android:layout_height="wrap_content"/>
         <EditText
             android:id="@+id/txtUsername"
-            android:autofillHints="username"
+            android:autofillHints="emailAddress"
             android:inputType="text"
             android:paddingStart="@dimen/padding_10"
             android:paddingEnd="@dimen/padding_10"
-            android:hint="@string/username_text"
+            android:hint="@string/email_text"
             android:layout_margin="@dimen/dp_20"
             android:textColorHint="@color/hint_eee"
             android:textColor="@color/white"
@@ -51,7 +51,7 @@
         <EditText
             android:id="@+id/txtFullName"
             android:autofillHints="name"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:paddingStart="@dimen/padding_10"
             android:paddingEnd="@dimen/padding_10"
             android:hint="@string/fullName"

@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import io.realm.RealmResults;
 import pe.edu.utp.yanapaapp.R;
@@ -38,7 +39,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     LinearLayout ll01, ll02;
     private CardView cvProfile,cvPlaces,cvCases,cvDonation;
     private DB db = new DB();
-    TextView mFullName;
+    TextView mFullName, mRole;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +61,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.navHome);
-
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
         setUserData();
     }
 
@@ -104,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.closeDrawer(GravityCompat.START);
         switch (item.getItemId()){
             case R.id.navLogout:
+                mAuth.signOut();
                 db.logout();
                 Intent i = new Intent(getApplicationContext(),SingInActivity.class);
                 startActivity(i);
@@ -144,7 +148,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void setUserData(){
         View view = navigationView.getHeaderView(0);
         mFullName = (TextView) view.findViewById(R.id.mFullName);
-        UserEntity userEntity = db.getUser(db.getToken().getUsername());
+        mRole = (TextView) view.findViewById(R.id.mRole);
+        UserEntity userEntity = db.isLogin();
         mFullName.setText(userEntity.getFullName());
+        mRole.setText(userEntity.getRole());
     }
 }
